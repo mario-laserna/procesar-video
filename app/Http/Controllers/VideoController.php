@@ -11,7 +11,9 @@ class VideoController extends Controller
     public function index()
     {
         //$video1= "https://descargasyoutube.tk/api/youtube/descargar?url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3DfKDqAADDscw";
-        $video1 = public_path() . "/test.mp4";
+        //$video1 = public_path() . "/test.mp4";
+        //$video1 = public_path() . "/test2.mov";
+        $video1 = public_path() . "/test3.webm";
         $video2 = public_path() . "/final1.mp4";
 
         $logo = 'https://codedream.ml/img/favicon.png';
