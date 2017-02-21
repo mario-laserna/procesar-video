@@ -19,10 +19,10 @@ class VideoController extends Controller
             'width' => 80,
             'height' => 80
         ];
-        $sizev = [
+        /*$sizev = [
             'width' => 1920,
             'height' => 1080
-        ];
+        ];*/
         $texto1 = 'Este es el texto 1';
         $texto2 = 'Este es el texto 2';
 
@@ -88,12 +88,21 @@ class VideoController extends Controller
         $ovideo2->load($video2);
 
         $ovideofinal = new Video();
-        if ($sizev) {
+        /*if ($sizev) {
             $ovideo1->setWidth($sizev['width'] + 0);
             $ovideo1->setHeight($sizev['height'] + 0);
             $ovideo2->setWidth($sizev['width'] + 0);
             $ovideo2->setHeight($sizev['height'] + 0);
+        }*/
+        if($ovideo2->getWidth() > $ovideo1->getWidth()){
+            $ovideo2->setWidth($ovideo1->getWidth());
+            $ovideo2->setHeight($ovideo1->getHeight());
         }
+        else{
+            $ovideo1->setWidth($ovideo2->getWidth());
+            $ovideo1->setHeight($ovideo2->getHeight());
+        }
+
 
         // Crear sección con marca de texto y logo ...
         // Está fija la duración pero se puede omitir los parámetros
@@ -127,8 +136,8 @@ class VideoController extends Controller
         $otext2->setWidth($ovideo1->getWidth());
         $otext2->setHeight(80);
         $otext2->setFontSize(18);
-        $otext2->setBottom(15);
-        $otext2->setRight(15);
+        $otext2->setBottom(35);
+        $otext2->setLeft(20);
 
         $ologo = new Logo();
         $ologo->setFileName($logo);

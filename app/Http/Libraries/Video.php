@@ -56,16 +56,16 @@ class Video
 
     public function getFormat()
     {
-        //$format = new \FFMpeg\Format\Video\X264();
-        $format = new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264');
+        $format = new \FFMpeg\Format\Video\X264();
+        //$format = new \FFMpeg\Format\Video\X264('libmp3lame', 'libx264');
         $e = $this;/*
 		$format->on('progress', function($a,$b,$c) use ($e){
 			$e->progress($a,$b,$c);
 		});*/
         $format->setAdditionalParameters(array('-preset', 'fast'));
-        //$format->setAudioCodec("aac");
+        $format->setAudioCodec("aac");
         $format->setAudioKiloBitrate(128);
-        $format->setKiloBitrate(800);
+        $format->setKiloBitrate(2500);
         return $format;
     }
 
@@ -111,12 +111,12 @@ class Video
 
     public function getWidth()
     {
-        return $this->width;
+        return $this->width+0;
     }
 
     public function getHeight()
     {
-        return $this->height;
+        return $this->height+0;
     }
 
     public function getOriginalWidth()
